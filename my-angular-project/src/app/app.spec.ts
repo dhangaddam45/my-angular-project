@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+
 import { App } from './app';
 
 describe('App', () => {
@@ -14,10 +15,9 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it(`should have the 'my-angular-project' title`, () => {
     const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, my-angular-project');
+    const app = fixture.componentInstance;
+    expect(app.title()).toEqual('my-angular-project');
   });
 });
